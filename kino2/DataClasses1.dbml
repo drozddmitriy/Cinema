@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Kino" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=ДИМА-ПК\SQLEXPRESS;Initial Catalog=Kino;Integrated Security=True" SettingsObjectName="kino2.Properties.Settings" SettingsPropertyName="KinoConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.tiket" Member="tiket">
+    <Type Name="tiket">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="id_seans" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="gorizontal" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="vertical" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="seans_tiket" Member="seans" ThisKey="id_seans" OtherKey="id" Type="seans" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.sector" Member="sector">
+    <Type Name="sector">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="vertical" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="gorizontal" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="sector_room" Member="room" ThisKey="id" OtherKey="id_section" Type="room" />
+    </Type>
+  </Table>
+  <Table Name="dbo.seans" Member="seans">
+    <Type Name="seans">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="time_" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="id_film" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_room" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="cena" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="seans_tiket" Member="tiket" ThisKey="id" OtherKey="id_seans" Type="tiket" />
+      <Association Name="room_seans" Member="room" ThisKey="id_room" OtherKey="id" Type="room" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="film_seans" Member="film" ThisKey="id_film" OtherKey="id" Type="film" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.room" Member="room">
+    <Type Name="room">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="id_section" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="room_seans" Member="seans" ThisKey="id" OtherKey="id_room" Type="seans" />
+      <Association Name="sector_room" Member="sector" ThisKey="id_section" OtherKey="id" Type="sector" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.film" Member="film">
+    <Type Name="film">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="img" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="film_seans" Member="seans" ThisKey="id" OtherKey="id_film" Type="seans" />
+    </Type>
+  </Table>
+</Database>

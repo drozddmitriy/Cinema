@@ -1,0 +1,9 @@
+D:\step\c\DZ_richtext_box_etc\kino2\kino2\bin\Debug\kino2.exe.config
+D:\step\c\DZ_richtext_box_etc\kino2\kino2\bin\Debug\kino2.exe
+D:\step\c\DZ_richtext_box_etc\kino2\kino2\bin\Debug\kino2.pdb
+D:\step\c\DZ_richtext_box_etc\kino2\kino2\obj\Debug\kino2.csprojResolveAssemblyReference.cache
+D:\step\c\DZ_richtext_box_etc\kino2\kino2\obj\Debug\kino2.Form1.resources
+D:\step\c\DZ_richtext_box_etc\kino2\kino2\obj\Debug\kino2.Properties.Resources.resources
+D:\step\c\DZ_richtext_box_etc\kino2\kino2\obj\Debug\kino2.csproj.GenerateResource.Cache
+D:\step\c\DZ_richtext_box_etc\kino2\kino2\obj\Debug\kino2.exe
+D:\step\c\DZ_richtext_box_etc\kino2\kino2\obj\Debug\kino2.pdb
